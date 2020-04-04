@@ -1,0 +1,65 @@
+@api = http://localhost:5000
+
+###
+POST {{api}}/identity/sign-up
+Content-Type: application/json
+
+{
+  "email": "pacco-user1@mailinator.com",
+  "password": "secret",
+  "role": "user"
+}
+
+###
+# @name sign_in
+POST {{api}}/identity/sign-in
+Content-Type: application/json
+
+{
+  "email": "pacco-user1@mailinator.com",
+  "password": "secret"
+}
+
+@accessToken = {{sign_in.response.body.$.accessToken}}
+
+###
+GET {{api}}/identity/me
+Authorization: Bearer {{accessToken}}
+
+###
+GET {{api}}/availability/resources
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+  "resourceId": "{{resourceId}}",
+  "tags": {{tags}}
+}
+
+@resourceId = 00000000-0000-0000-0000-000000000001
+@tags = ["vehicle", "armor"]
+
+###
+POST {{api}}/availability/resources
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+  "resourceId": "{{resourceId}}",
+  "tags": {{tags}}
+}
+
+@dateTime = 2020-05-01
+@customerId = 00000000-0000-0000-0000-000000000001
+
+###
+POST {{api}}/availability/resources/reservations
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+  "resourceId": "{{resourceId}}",
+  "customerId": "{{customerId}}",
+  "dateTime": "{{dateTime}}",
+  "priority": 0
+}

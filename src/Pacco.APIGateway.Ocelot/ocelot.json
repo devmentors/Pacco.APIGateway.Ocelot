@@ -1,0 +1,66 @@
+{
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:5000"
+  },
+  "ReRoutes": [
+    {
+      "UpstreamPathTemplate": "/availability/{everything}",
+      "DownstreamPathTemplate": "/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5001
+        }
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "QoSOptions": {
+        "ExceptionsAllowedBeforeBreaking": 3,
+        "DurationOfBreak": 1000,
+        "TimeoutValue": 5000
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/identity/{everything}",
+      "DownstreamPathTemplate": "/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5004
+        }
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "QoSOptions": {
+        "ExceptionsAllowedBeforeBreaking": 3,
+        "DurationOfBreak": 1000,
+        "TimeoutValue": 5000
+      }
+    }
+  ],
+  "AnonymousRoutes": {
+    "Routes": [
+      "/identity/sign-in",
+      "/identity/sign-up"
+    ]
+  },
+  "AsyncRoutes": {
+    "Authenticate": false,
+    "Routes": {
+      "POST /availability/resources": {
+        "Exchange": "availability",
+        "RoutingKey": "add_resource"
+      },
+      "POST /availability/resources/reservations": {
+        "Exchange": "availability",
+        "RoutingKey": "reserve_resource"
+      }
+    }
+  }
+}

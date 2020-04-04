@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <RootNamespace>Pacco.APIGateway.Ocelot</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Convey.Auth" Version="0.4.*" />
+    <PackageReference Include="Convey.Logging" Version="0.4.*" />
+    <PackageReference Include="Convey.MessageBrokers.CQRS" Version="0.4.*" />
+    <PackageReference Include="Convey.MessageBrokers.RabbitMQ" Version="0.4.*" />
+    <PackageReference Include="Convey.Metrics.AppMetrics" Version="0.4.*" />
+    <PackageReference Include="Convey.Secrets.Vault" Version="0.4.*" />
+    <PackageReference Include="Convey.Tracing.Jaeger" Version="0.4.*" />
+    <PackageReference Include="Convey.Tracing.Jaeger.RabbitMQ" Version="0.4.*" />
+    <PackageReference Include="Convey.WebApi" Version="0.4.*" />
+    <PackageReference Include="Ocelot" Version="14.1.0" />
+    <PackageReference Include="Ocelot.Provider.Polly" Version="14.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="ocelot.json">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>
