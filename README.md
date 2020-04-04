@@ -8,7 +8,7 @@ Pacco is an open source project using microservices architecture written in .NET
 **What is Pacco.APIGateway?**
 ----------------
 
-Pacco.APIGateway.Ocelot is an API Gateway built with [Ocelot](https://github.com/ThreeMammals/Ocelota) being part of [Pacco](https://github.com/devmentors/Pacco) solution.
+Pacco.APIGateway.Ocelot is an API Gateway built with [Ocelot](https://github.com/ThreeMammals/Ocelot) being part of [Pacco](https://github.com/devmentors/Pacco) solution.
 
 |Branch             |Build status                                                  
 |-------------------|-----------------------------------------------------
