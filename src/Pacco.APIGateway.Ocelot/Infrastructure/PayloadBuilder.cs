@@ -9,7 +9,7 @@ namespace Pacco.APIGateway.Ocelot.Infrastructure
     {
         public async Task<T> BuildFromJsonAsync<T>(HttpRequest request) where T : class, new()
         {
-            if (request.Body == null)
+            if (request.Body is null)
             {
                 return new T();
             }
