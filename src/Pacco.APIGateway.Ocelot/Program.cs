@@ -5,6 +5,7 @@ using Convey.Auth;
 using Convey.Logging;
 using Convey.MessageBrokers.RabbitMQ;
 using Convey.Secrets.Vault;
+using Convey.Security;
 using Convey.Tracing.Jaeger;
 using Convey.Types;
 using Convey.WebApi;
@@ -57,6 +58,7 @@ namespace Pacco.APIGateway.Ocelot
                             .AddJaeger()
                             .AddJwt()
                             .AddRabbitMq()
+                            .AddSecurity()
                             .AddWebApi()
                             .Build();
 
