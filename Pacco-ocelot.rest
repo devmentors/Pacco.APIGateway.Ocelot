@@ -20,9 +20,9 @@ Content-Type: application/json
   "password": "secret"
 }
 
-@accessToken = {{sign_in.response.body.$.accessToken}}
 
 ###
+@accessToken = {{sign_in.response.body.$.accessToken}}
 GET {{api}}/identity/me
 Authorization: Bearer {{accessToken}}
 
